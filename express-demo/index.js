@@ -40,6 +40,18 @@ app.post("/api/courses", (req, res)
   res.send(course);
 });
 
+app.put('/api/courses/', (req,res) => {
+  const course = courses.find(c => c.id === parseInt(req.params.id));
+  if (!course)
+    res.status(404).send("The course with the given ID was not found");
+
+  //Validate
+  //If invalid, return 400 - Bad request
+
+  //Update course
+  //Return the updated course
+})
+
 app.get("/api/courses/:id", (req, res) => {
   const course = courses.find(c => c.id === parseInt(req.params.id));
   if (!course)
