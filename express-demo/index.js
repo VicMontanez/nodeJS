@@ -45,8 +45,15 @@ app.put('/api/courses/', (req,res) => {
   if (!course)
     res.status(404).send("The course with the given ID was not found");
 
-  //Validate
-  //If invalid, return 400 - Bad request
+    const schema = {
+      name: Joi.string().min(3).required()
+    };
+  
+    const result = Joi.validate(req.body, schema);
+    if (result.error) {
+      res.status(400).send(result.error.details[0].message);
+      return;
+    }
 
   //Update course
   //Return the updated course
