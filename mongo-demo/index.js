@@ -39,4 +39,26 @@ async function getCourses() {
   console.log(courses);
 }
 
+async function updateCourse(id) {
+  const result = await Course.update(
+    { _id: id },
+    {
+      $set: {
+        author: "Mosh",
+        isPublished: false
+      }
+    }
+  );
+  if (!course) return;
+
+  //Second method//
+  //  course.set({
+  //    isPublished: true,
+  //    author: 'Author Author'
+  //  })
+  console.log(result);
+}
+
+updateCourse();
+
 getCourses();
