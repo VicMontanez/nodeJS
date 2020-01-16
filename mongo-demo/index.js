@@ -40,7 +40,7 @@ async function getCourses() {
 }
 
 async function updateCourse(id) {
-  const result = await Course.findByIdAndUpdate(
+  const course = await Course.findByIdAndUpdate(
     id,
     {
       $set: {
@@ -62,3 +62,11 @@ async function updateCourse(id) {
 updateCourse();
 
 getCourses();
+
+async function removeCourse(id) {
+  const result = await Course.deleteOne({ _id: id });
+  const course = await Course.findByIdAndRemove(id);
+  console.log(course);
+}
+
+removeCourse();
