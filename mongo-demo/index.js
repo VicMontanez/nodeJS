@@ -28,24 +28,12 @@ async function createCourse() {
 }
 
 async function getCourses() {
-  const courses = await Course.find({
-    author: "Mosh",
-    isPublished: true
-  })
-    //Starts with Mosh
-    .find({ author: /^Mosh/ })
+  const pageNumber = 2;
+  const pageSize = 10;
 
-    //Ends with
-    .find({ author: /Hamedani$/i })
-
-    //Contains
-    .find({ author: /.*Mosh.*/ })
-
-    // .find()
-    // .or([{ author: "Mosh" }, { isPublished: true }]) //logical operators
-    // .find({ price: { $gte: 10, $lte: 20} }) //greater than or equal to 10; less than or equal to 20
-    // .find({ price: { $in: [10, 15, 20] } }) //multiple values
-    // .limit(10)
+  const courses = await Course.find({ author: "Mosh", isPublished: true })
+    .skip((pageNumber - 1) * pageSize)
+    .limit(pageSize)
     .sort({ name: 1 })
     .select({ name: 1, tags: 1 });
   console.log(courses);
