@@ -23,8 +23,12 @@ async function createCourse() {
     isPublished: true
   });
 
-  const result = await course.save();
-  console.log(result);
+  try {
+    const result = await course.save();
+    console.log(result);
+  } catch (ex) {
+    console.log;
+  }
 }
 
 async function getCourses() {
