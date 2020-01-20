@@ -23,7 +23,7 @@ const courseSchema = new mongoose.Schema({
     type: Array,
     validate: {
       validator: function(v) {
-        return v.length > 0;
+        return v && v.length > 0;
       },
       message: "A course should have at least one tag"
     }
@@ -45,7 +45,7 @@ async function createCourse() {
     name: "Angular Course",
     category: "-",
     author: "Mosh",
-    tags: [],
+    tags: null,
     isPublished: true
   });
 
