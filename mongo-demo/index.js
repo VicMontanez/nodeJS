@@ -13,7 +13,7 @@ const courseSchema = new mongoose.Schema({
     maxlength: 255
     //match: /pattern/
   },
-  categor: {
+  category: {
     type: String,
     required: true,
     enum: ["web", "mobile", "network"]
