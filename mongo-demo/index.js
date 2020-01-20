@@ -10,7 +10,13 @@ const courseSchema = new mongoose.Schema({
   author: String,
   tags: [String],
   date: { type: Date, default: Date.now },
-  isPublished: Boolean
+  isPublished: Boolean,
+  price: {
+    type: Number,
+    required: function() {
+      return this.isPublished;
+    }
+  }
 });
 
 const Course = mongoose.model("Course", courseSchema);
