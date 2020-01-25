@@ -43,7 +43,9 @@ const courseSchema = new mongoose.Schema({
       return this.isPublished;
     },
     min: 10,
-    max: 200
+    max: 200,
+    get: v => Math.round(v),
+    set: v => Math.round(v)
   }
 });
 
@@ -55,7 +57,8 @@ async function createCourse() {
     category: "Web",
     author: "Mosh",
     tags: ["frontend"],
-    isPublished: true
+    isPublished: true,
+    price: 15.8
   });
 
   try {
