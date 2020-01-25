@@ -18,6 +18,7 @@ const courseSchema = new mongoose.Schema({
     required: true,
     enum: ["web", "mobile", "network"],
     lowercase: true
+    //uppercase: true,
   },
   author: String,
   tags: {
