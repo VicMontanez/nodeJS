@@ -15,3 +15,16 @@ let course = {
     name: "Mosh"
   }
 };
+
+// Hybrid
+let author = {
+  name: "Mosh"
+  //50 other properties
+};
+
+let course = {
+  author: {
+    id: "ref",
+    name: "Mosh"
+  }
+};
