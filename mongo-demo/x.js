@@ -8,3 +8,10 @@ let author = {
 let course = {
   author: "id"
 };
+
+// Using Embedded Documents (denormalizaion)
+let course = {
+  author: {
+    name: "Mosh"
+  }
+};
