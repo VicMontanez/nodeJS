@@ -48,13 +48,13 @@ async function createCourse(name, author) {
 
 async function listCourses() {
   const courses = await Course.find()
-    .populate("author", "name -_id")
+    .populate("author", "name -_id") //dash is used to exclude property
     .populate("category", "name")
     .select("name author");
   console.log(courses);
 }
 
-createAuthor("Mosh", "My bio", "My Website");
+// createAuthor("Mosh", "My bio", "My Website");
 
 // createCourse('Node Course', '5e1b99adeeda92400c64e4f4');
 
